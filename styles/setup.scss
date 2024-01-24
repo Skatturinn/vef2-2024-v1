@@ -1,0 +1,31 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	min-width: 0;
+}
+
+.sr-only:not(:focus, :active) {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: var(--border-size);
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: var(--border-size);
+}
+
+html,
+body {
+	max-width: 100%;
+	overflow-wrap: anywhere;
+}
+
+button,
+input,
+a,
+textarea {
+	background-color: inherit;
+	border: inherit;
+	font-family: inherit;
+}
