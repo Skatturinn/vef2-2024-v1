@@ -17,8 +17,9 @@ async function main() {
       continue;
     }
     const fileContents = await readFile(file);
+    // const { name } = parse(file)
 
-    console.log(file, fileContents?.length);
+    console.log(JSON.parse(fileContents), fileContents?.length);
   }
 }
 

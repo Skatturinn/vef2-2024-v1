@@ -1,5 +1,5 @@
-import { readFile as fsReadFile, mkdir, readdir, stat } from 'fs/promises';
-import { join } from 'path';
+import { readFile as fsReadFile, writeFile as fsWriteFile, mkdir, readdir, stat } from 'fs/promises';
+import { join, parse } from 'path';
 
 /**
  * Check if a directory exists.
@@ -91,3 +91,33 @@ export async function readFile(file, { encoding = 'utf8' } = {}) {
     return null;
   }
 }
+
+
+// planið les in skjöl rá string af json
+// breyta í json senda í template
+// senda template í write file
+// TODO writfefile
+// fs.writeFile(path.join('dist', 'index.html'), wfile);
+// hann er búin að búa til dir vantar bara fileanna
+const ip = './dist/index.html';
+// const a = parse('/dist/index.html')
+// console.log(await direxists(a.dir))
+
+
+/**
+ * @param {string} fileConentString
+ * @param {string} filePathString  
+ * @returns {Promise}
+ */
+export async function writeFile(filePathString, fileConentString) {
+  const { dir } = parse(filePathString);
+  if (await direxists(dir)) {
+    await fsWriteFile(filePathString, fileConentString)
+  } else {
+    throw new Error(`directory:${dir} does not exist.`)
+  }
+}
+
+
+
+

@@ -35,5 +35,8 @@
     "collectCoverageFrom": [
       "./src/**/lib/**"
     ]
+  },
+  "dependencies": {
+    "path": "^0.12.7"
   }
 }
