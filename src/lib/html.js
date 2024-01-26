@@ -50,7 +50,7 @@ export function returnMatchLi(site, stak, teams, vann) {
 		<li class="${(vann === 0.5 && 'jafn') || vann ? 'vann' : 'tap'}">
 		<h2 class="teamname">${name}</h2>
 		<p class="stada">
-		<div class="stada__ord">Skoraði</div>
+		<div class="stada__ord">Skoruðu</div>
 		<div class="stada__stig">${score}</div>
 		<div class="stada__stig__ord">stig</div>
 		<div class="stada__vollur">${site ? 'Á heimmavelli' : 'Á útivelli'}</div>

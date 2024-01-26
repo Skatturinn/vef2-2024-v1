@@ -1,45 +1,55 @@
 {
-  "name": "vef2-2024-v1",
-  "version": "1.0.0",
-  "description": "",
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "module",
-  "main": "src/generate.js",
-  "engines": {
-    "node": "20"
-  },
-  "scripts": {
-    "test": "cross-env NODE_OPTIONS='--experimental-vm-modules' NODE_NO_WARNINGS=1 jest ./*.test.js",
-    "test:coverage": "cross-env NODE_OPTIONS='--experimental-vm-modules' NODE_NO_WARNINGS=1 jest ./*.test.js --coverage",
-    "lint": "concurrently npm:lint:*",
-    "lint:eslint": "eslint ./src/**/*.js",
-    "lint:stylelint": "stylelint ./public/styles.css"
-  },
-  "devDependencies": {
-    "@jest/globals": "^29.7.0",
-    "browser-sync": "^3.0.2",
-    "concurrently": "^8.2.2",
-    "cross-env": "^7.0.3",
-    "eslint": "^8.56.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-import": "^2.29.1",
-    "jest": "^29.7.0",
-    "postcss": "^8.4.33",
-    "prettier": "^3.2.2",
-    "stylelint": "^16.2.0",
-    "stylelint-config-sass-guidelines": "^11.0.0",
-    "stylelint-config-standard": "^36.0.0"
-  },
-  "jest": {
-    "collectCoverageFrom": [
-      "./src/**/lib/**"
-    ]
-  },
-  "dependencies": {
-    "path": "^0.12.7",
-    "sass": "^1.70.0"
-  }
+	"name": "vef2-2024-v1",
+	"version": "1.0.0",
+	"description": "",
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"type": "module",
+	"main": "src/generate.js",
+	"engines": {
+		"node": "20"
+	},
+	"scripts": {
+		"browser-sync": "browser-sync start --serveStatic ./dist --server --files ./dist/*.js ./dist/*.css ./dist/*.html",
+		"test": "cross-env NODE_OPTIONS='--experimental-vm-modules' NODE_NO_WARNINGS=1 jest ./*.test.js",
+		"test:coverage": "cross-env NODE_OPTIONS='--experimental-vm-modules' NODE_NO_WARNINGS=1 jest ./*.test.js --coverage",
+		"lint": "concurrently npm:lint:*",
+		"sass2": "sass ./styles.scss ./styles.css -w",
+		"lint:eslint": "eslint ./src/**/*.js",
+		"lint:stylelint": "stylelint ./styles.css",
+		"cwstyles": "copy-and-watch --watch ./styles.css ./dist/",
+		"cwscripts": "copy-and-watch --watch ./scripts.js ./dist/",
+		"dev": "concurrently npm:sass2 npm:cwstyles npm:cwscripts npm:browser-sync",
+		"dist": "node ./src/generate.js",
+		"copy:js": "cpy ./scripts.js ./dist/",
+		"copy:css": "cpy ./styles.css ./dist/",
+		"build": "concurrently npm:dist npm:copy:*"
+	},
+	"devDependencies": {
+		"@jest/globals": "^29.7.0",
+		"browser-sync": "^3.0.2",
+		"concurrently": "^8.2.2",
+		"copy-and-watch": "^0.1.6",
+		"cross-env": "^7.0.3",
+		"eslint": "^8.56.0",
+		"eslint-config-airbnb-base": "^15.0.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-import": "^2.29.1",
+		"jest": "^29.7.0",
+		"postcss": "^8.4.33",
+		"prettier": "^3.2.2",
+		"stylelint": "^16.2.0",
+		"stylelint-config-sass-guidelines": "^11.0.0",
+		"stylelint-config-standard": "^36.0.0"
+	},
+	"jest": {
+		"collectCoverageFrom": [
+			"./src/**/lib/**"
+		]
+	},
+	"dependencies": {
+		"path": "^0.12.7",
+		"sass": "^1.70.0"
+	}
 }

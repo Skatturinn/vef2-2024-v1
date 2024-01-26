@@ -59,14 +59,14 @@ async function main() {
 			`)
 		}
 		leikir.push(`
-		<li>
+		<li class="leikir_dag">
 			<p class="leikir__dagsetning">${fcJson.date}</p>
-			<ul class="leikir">${leikur}</ul>
+			<ul class="leikir__leikirnir">${leikur}</ul>
 		</li>`)
 	}
 	// console.log(leikir)
 	try {
-		await writeFile('./dist/leikir.html', template('leikir', '<h1>leikir</h1>', `<ul>${String(leikir).replaceAll(',', '')}</ul>`, ''))
+		await writeFile('./dist/leikir.html', template('leikir', '<h1>leikir</h1>', `<ul class="leikir">${String(leikir).replaceAll(',', '')}</ul>`, ''))
 	} catch (e) {
 		console.log(e)
 	}

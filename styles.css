@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.sr-only:not(:focus, :active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: var(--border-size);
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: var(--border-size);
+}
+
+html,
+body {
+  overflow-wrap: anywhere;
+}
+
+button,
+input,
+a,
+textarea {
+  background-color: inherit;
+  border: inherit;
+  font-family: inherit;
+}
+
+body {
+  max-width: 1400px;
+  margin: 0 auto;
+  height: 100vh;
+}
+
+.leikir {
+  background-color: black;
+  color: white;
+}
+.leikir_dag {
+  border: 1px white solid;
+}
+
+.leikur {
+  background-color: green;
+  color: yellow;
+  padding: 1em;
+}
+
+/*# sourceMappingURL=styles.css.map */
