@@ -1,6 +1,6 @@
 // const homeAway = [home, away];
 
-export function returnLi(site, stak, teams) {
+export function nameScoreValidation(stak, teams) {
 	const { name, score } =
 		typeof stak?.score === 'string' &&
 			Number.isInteger(stak?.name)
@@ -13,6 +13,7 @@ export function returnLi(site, stak, teams) {
 		Number.isInteger(score) &&
 		score >= 0
 	) {
-		console.log(name, score)
-	} else return ''
+		return { name, score }
+	}
+	return false
 }

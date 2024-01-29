@@ -17,7 +17,7 @@ export function template(title, header, main, footer) {
 				<script type="module" src="./scripts.js"></script>
 			</head>
 			<body>
-				<a href="#efni" class="sr-only">Tæknibúðin,Beint í efnið.</a>
+				<a href="#efni" class="sr-only">Beint í efnið.</a>
 				<header>${header}</header>
 				<main id="efni">${String(main).replaceAll('>,<', '><')}</main>
 				<footer>
@@ -29,25 +29,14 @@ export function template(title, header, main, footer) {
 /**
  * 
  * @param {Boolean} site 
- * @param {Object} stak 
- * @param {string} teams 
+ * @param {string} name 
+ * @param {number} score
+ * @param {number} stig
  * @returns 
  */
-export function returnMatchLi(site, stak, teams, vann) {
-	const { name, score } =
-		typeof stak?.score === 'string' &&
-			Number.isInteger(stak?.name)
-			&& stak?.name >= 0
-			? { name: stak.score, score: stak.name }
-			: stak;
-	if (
-		typeof name === 'string' &&
-		teams?.includes(name) &&
-		Number.isInteger(score) &&
-		score >= 0
-	) {
-		return `
-		<li class="${(vann === 0.5 && 'jafn') || vann ? 'vann' : 'tap'}">
+export function returnMatchLi(site, name, score, stig) {
+	return `
+		<li class="${(stig === 1 && 'jafn') || stig ? 'vann' : 'tap'}">
 		<h2 class="teamname">${name}</h2>
 		<p class="stada">
 		<div class="stada__ord">Skoruðu</div>
@@ -55,9 +44,7 @@ export function returnMatchLi(site, stak, teams, vann) {
 		<div class="stada__stig__ord">stig</div>
 		<div class="stada__vollur">${site ? 'Á heimmavelli' : 'Á útivelli'}</div>
 		</li>`
-	} return ''
 }
-
 /**
  * 
  * @param {any} linur 
