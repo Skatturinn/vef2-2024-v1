@@ -45,26 +45,80 @@ export function returnMatchLi(site, name, score, stig) {
 		<div class="stada__vollur">${site ? 'Á heimmavelli' : 'Á útivelli'}</div>
 		</li>`
 }
+
 /**
  * 
- * @param {any} linur 
+ * @param {Array<string>} thead 
+ * @param {Array<Array<string>>} tbody 
  * @returns {string}
  */
-export function tabletemplate(linur) {
-	return (
-		`<table>
-			<thead class="tafla">
-				<tr class="row">
-					<th><button class="sort"><h2>Númer</h2></button></th>
-					<th><button class="sort"><h2>Heiti</h2></button></th>
-					<th><button class="sort"><h2>Einingar</h2></button></th>
-					<th><button class="sort"><h2>Kennslummisseri</h2></button></th>
-					<th><button class="sort"><h2>Námsstig</h2></button></th>
-					<th><button class="sort"><h2>Kennsluskrá</h2></button></th>
-	  			</tr>
-			</thead>
-			<tbody class="tafla">
-				${linur}
-			</tbody>
-  		</table>`)
+export function tabletemplate(thead, tbody) {
+	let table = `<table>
+	<thead class="tafla">
+		<tr class="row">`
+	let tablebody = ''
+	if (Array.isArray(thead)) {
+		thead.forEach((stak, numer) => {
+			table += `<th>${stak}</th>`;
+			try {
+				if (tbody[numer].length() === thead.length() && Array.isArray(tbody[numer])) {
+					for (const body of tbody) {
+						tablebody += `<td>${body}</td>`;
+					}
+				} else {
+					for (let step = 0; step < thead.length(); step += 1) {
+						tablebody += '<td></td>';
+					}
+				}
+			} catch (e) {
+				console.error(e)
+			}
+		})
+	}
+	table += `</tr>
+	</thead>
+	<tbody class="tafla">
+		${tablebody}
+	</tbody>
+  </table>`
+	return table
 }
+
+
+export function htmlListString(className, ordered, ...children) {
+	const listType = ordered ? 'ol' : 'ul';
+	let list = `<${listType}>`
+	if (children) {
+		try {
+			children.forEach(child => {
+				list += typeof child === 'string' && child.includes('</') ? child : `<li>${child}</li>`
+			})
+		} catch (e) {
+			console.error(e)
+		}
+	}
+	list += `<${listType}`
+	return list
+}
+
+
+
+
+
+
+// export function createElement(tag, attributes, ...children) {
+// 	const element = document.createElement(tag);
+// 	for (const key in attributes) {
+// 		if (Object.prototype.hasOwnProperty.call(attributes, key)) {
+// 			element[key] = attributes[key];
+// 		}
+// 	}
+// 	children.forEach(child => {
+// 		if (typeof child === 'string') {
+// 			element.innerHTML += child;
+// 		} else {
+// 			element.appendChild(child);
+// 		}
+// 	});
+// 	return element;
+// }

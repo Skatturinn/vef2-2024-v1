@@ -17,7 +17,7 @@ const OUTPUT_DIR = './dist';
 // TODO writfefile
 // fs.writeFile(path.join('dist', 'index.html'), wfile);
 // hann er búin að búa til dir vantar bara fileanna
-const ip = './dist/index.html';
+// const ip = './dist/index.html';
 // const a = parse('/dist/index.html')
 // console.log(await direxists(a.dir))
 async function main() {
@@ -36,7 +36,7 @@ async function main() {
 		}
 	}
 	// console.log(stada)
-	const leikir = []
+	let leikir = ''
 	for await (const file of files) {
 		if (!parse(file)?.name.includes('gameday')) {
 			continue;
@@ -48,7 +48,7 @@ async function main() {
 			fcJson.date !== (new Date(fcJson.date)).toISOString()) { // athugar hvort dagsetning séu iso
 			continue
 		}
-		const leikur = []
+		let leikur = ''
 		for (const { home, away } of Array.from(fcJson.games)) {
 			// TODO búta þetta upp í .js skrárnar
 			const heima = nameScoreValidation(home, teams);
@@ -58,7 +58,7 @@ async function main() {
 				stada[heima.name] += vann[0];
 				stada[uti.name] += vann[1];
 				// TODO breyta .push í html fall(p?, returnmatchli....)
-				leikur.push(`
+				leikur += (`
 			<li class="leikur">
 			<ul class="leikur__lid">
 			${returnMatchLi(true, heima.name, heima.score, vann[0])}
@@ -70,13 +70,13 @@ async function main() {
 				stada[uti.name] += vann[1];
 			}
 		}
-		// TODO breyta .push í html fall(p?, returnmatchli....)
-		leikir.push(`
+		leikir += (`
 		<li class="leikir_dag">
 			<p class="leikir__dagsetning">${fcJson.date}</p>
 			<ul class="leikir__leikirnir">${leikur}</ul>
 		</li>`)
 	}
+	// console.log(stada[teams])
 	try {
 		await writeFile('./dist/leikir.html',
 			template('leikir', '<h1>leikir</h1>',
@@ -93,7 +93,7 @@ async function main() {
 				'<h2>Lýsingaorð</h2><p>Hefur einhvern teksta</p>',
 				''))
 	} catch (e) {
-		console.log(e)
+		console.error(e)
 	}
 
 }
