@@ -18,6 +18,7 @@
 html,
 body {
   overflow-wrap: anywhere;
+  min-height: 100vh;
 }
 
 button,
@@ -29,24 +30,66 @@ textarea {
   font-family: inherit;
 }
 
+ol,
+ul {
+  list-style: none;
+}
+
 body {
   max-width: 1400px;
   margin: 0 auto;
   height: 100vh;
 }
 
-.leikir {
-  background-color: black;
-  color: white;
+header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 1em 1em 0;
 }
-.leikir_dag {
-  border: 1px white solid;
+header nav {
+  justify-self: center;
+  width: 80%;
+  max-width: 50vw;
+  justify-content: center;
+}
+header nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+section .teksti {
+  max-width: 500px;
+  margin: 0 auto;
+}
+section .teksti article {
+  padding: 0.5em 0;
 }
 
-.leikur {
-  background-color: green;
-  color: yellow;
+.leikir__lid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.leikir__lid li:nth-child(even) .vann {
+  background: linear-gradient(145deg, #058743, white);
+}
+.leikir__lid li:nth-child(even) .tap {
+  background: linear-gradient(145deg, #ED2939, white);
+}
+.leikir__lid li:nth-child(odd) .vann {
+  background: linear-gradient(-145deg, #058743, white);
+}
+.leikir__lid li:nth-child(odd) .tap {
+  background: linear-gradient(-145deg, #ED2939, white);
+}
+.leikir__lid li div {
+  border-radius: 1em;
   padding: 1em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
 }
 
 /*# sourceMappingURL=styles.css.map */

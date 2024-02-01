@@ -1,5 +1,60 @@
-body {
-	max-width: 1400px;
-	margin: 0 auto;
-	height: 100vh;
+$tap: #ED2939;
+$vann: #058743;
+
+section {
+
+	.teksti {
+		max-width: 500px;
+		margin: 0 auto;
+
+		article {
+			padding: 0.5em 0;
+		}
+	}
+}
+
+.leikir {
+
+	&__lid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		$higlight: #000000;
+
+		li {
+			// position: relative;
+
+			&:nth-child(even) {
+
+				.vann {
+					background: linear-gradient(145deg, $vann, white);
+				}
+
+				.tap {
+					background: linear-gradient(145deg, $tap, white);
+				}
+
+				div {}
+			}
+
+			&:nth-child(odd) {
+
+				.vann {
+					background: linear-gradient(-145deg, $vann, white);
+				}
+
+				.tap {
+					background: linear-gradient(-145deg, $tap, white);
+				}
+			}
+
+			div {
+				border-radius: 1em;
+				padding: 1em;
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				grid-template-rows: 1fr 1fr 1fr;
+
+			}
+		}
+	}
 }

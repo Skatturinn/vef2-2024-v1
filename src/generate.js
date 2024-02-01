@@ -1,18 +1,18 @@
 import {
 	createDirIfNotExists,
+	readFile,
 	readFilesFromDir,
 	writeFile
 } from './lib/file.js';
 import {
+	header,
 	hlekkur,
 	htmlListString,
 	tabletemplate,
 	teksti,
 	template
 } from './lib/html.js';
-import {
-	parseTeamsJson
-} from './lib/parse.js';
+import { parseTeamsJson } from './lib/parse.js';
 
 const INPUT_DIR = './data';
 const OUTPUT_DIR = './dist';
@@ -21,28 +21,30 @@ async function main() {
 	await createDirIfNotExists(OUTPUT_DIR);
 	const files = await readFilesFromDir(INPUT_DIR);
 	const teamsFile = files.find(file => file.includes('teams'));
-	const { leikir, tbody } = await parseTeamsJson(teamsFile, files)
+	const teamsData = typeof teamsFile === 'string' && await readFile(teamsFile);
+	const { leikir, tbody } = await parseTeamsJson(teamsData, files)
 	leikir.sort((a, b) => a.date - b.date)
 	const sortleikir = leikir.map(stak => stak.html)
-	const nav = `<nav>${htmlListString('hlekkir', false,
-		hlekkur('/', 'forsíða'),
-		hlekkur('/leikir.html', 'leikir'),
-		hlekkur('/stada.html', 'staðan')
-	)}</nav>`;
 	try {
 		await writeFile('./dist/leikir.html',
-			template('leikir',
-				`<h1>leikir</h1>${nav}`,
+			template('Leikir',
+				header('Leikir',
+					hlekkur('/', 'forsíða'),
+					hlekkur('/stada.html', 'staðan')),
 				`${htmlListString('leikir', false, sortleikir)}`,
 				hlekkur('/', 'til baka')))
 		await writeFile('./dist/stada.html',
-			template('staðan',
-				`<h1>staðan</h1>${nav}`,
+			template('Staðan',
+				header('Staðan',
+					hlekkur('/', 'forsíða'),
+					hlekkur('/leikir.html', 'leikir'),),
 				tabletemplate(['lið', 'stig'], tbody), // TODO útfæra töflu hérna af object stada
 				hlekkur('/', 'til baka')))
 		await writeFile('./dist/index.html',
-			template('forsíða',
-				`<h1>Forsíða</h1>${nav}`,
+			template('Forsíða',
+				header('Forsíða',
+					hlekkur('/leikir.html', 'leikir'),
+					hlekkur('/stada.html', 'staðan')),
 				teksti(),
 				''))
 	} catch (e) {

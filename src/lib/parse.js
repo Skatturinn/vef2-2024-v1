@@ -36,7 +36,7 @@ export async function parseTeamsJson(data, files) {
 				const vann = stig(heima.score, uti.score)
 				stada[heima.name] += vann[0];
 				stada[uti.name] += vann[1];
-				leikur.push(htmlListString('leikur__lid', false, // búum til lista fyrir hvern leik
+				leikur.push(htmlListString('leikir__lid', false, // búum til lista fyrir hvern leik
 					returnMatchdiv(true, heima.name, heima.score, vann[0]),
 					returnMatchdiv(false, uti.name, uti.score, vann[1]))
 				)

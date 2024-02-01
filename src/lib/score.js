@@ -19,7 +19,3 @@ export function stig(homeScore, awayScore) {
 	const homestig = stigagjof(homeScore > awayScore, homeScore < awayScore)
 	return [homestig, stigagjof(!homestig, homestig === 3)]
 }
-
-export function calculateStandings() {
-	return 0;
-}

@@ -19,6 +19,7 @@ html,
 body {
 	// max-width: 100%;
 	overflow-wrap: anywhere;
+	min-height: 100vh;
 }
 
 button,
@@ -28,4 +29,9 @@ textarea {
 	background-color: inherit;
 	border: inherit;
 	font-family: inherit;
+}
+
+ol,
+ul {
+	list-style: none;
 }
