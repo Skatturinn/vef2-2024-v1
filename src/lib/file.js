@@ -7,22 +7,22 @@ import { join, parse } from 'path';
  * @returns `true` if dir exists, `false` otherwise
  */
 export async function direxists(dir) {
-  if (!dir) {
-    return false;
-  }
+	if (!dir) {
+		return false;
+	}
 
-  try {
-    const info = await stat(dir);
-    return info.isDirectory();
-  } catch (e) {
-    return false;
-  }
+	try {
+		const info = await stat(dir);
+		return info.isDirectory();
+	} catch (e) {
+		return false;
+	}
 }
 
 export async function createDirIfNotExists(dir) {
-  if (!(await direxists(dir))) {
-    await mkdir(dir);
-  }
+	if (!(await direxists(dir))) {
+		await mkdir(dir);
+	}
 }
 
 /**
@@ -32,48 +32,38 @@ export async function createDirIfNotExists(dir) {
  *   error or no files
  */
 export async function readFilesFromDir(dir) {
-  let files = [];
-  // console.log('dir', dir);
-  try {
-    files = await readdir(dir);
-  } catch (e) {
-    console.error('error', e);
-    return [];
-  }
+	let files = [];
+	try {
+		files = await readdir(dir);
+	} catch (e) {
+		console.error('error', e);
+		return [];
+	}
 
-  const mapped = files.map(async (file) => {
-    const path = join(dir, file);
-    // console.log('mapping', file, path);
-    const info = await stat(path);
-    // console.log('info', info);
+	const mapped = files.map(async (file) => {
+		const path = join(dir, file);
+		const info = await stat(path);
 
-    if (info.isDirectory()) {
-      // console.log('is dir!');
-      return null;
-    }
+		if (info.isDirectory()) {
+			return null;
+		}
 
-    if (info.isFile()) {
-      // console.log('is file!');
-      return path;
-    }
+		if (info.isFile()) {
+			return path;
+		}
 
-    return null;
-  });
+		return null;
+	});
 
-  // console.log('resolving promises...');
-  const resolved = await Promise.all(mapped);
-  // console.log('resolved!', resolved);
-
-  // Remove any directories that will be represented by `null`
-  const filtered = [];
-  for (const file of resolved) {
-    if (file) {
-      filtered.push(file);
-    }
-  }
-  // console.log('filtered', filtered);
-
-  return filtered;
+	const resolved = await Promise.all(mapped);
+	// Remove any directories that will be represented by `null`
+	const filtered = [];
+	for (const file of resolved) {
+		if (file) {
+			filtered.push(file);
+		}
+	}
+	return filtered;
 }
 
 /**
@@ -83,26 +73,14 @@ export async function readFilesFromDir(dir) {
  * @returns {Promise<string | null>} Content of file or `null` if unable to read.
  */
 export async function readFile(file, { encoding = 'utf8' } = {}) {
-  try {
-    const content = await fsReadFile(file, { encoding });
+	try {
+		const content = await fsReadFile(file, { encoding });
 
-    return content.toString(encoding);
-  } catch (e) {
-    return null;
-  }
+		return content.toString(encoding);
+	} catch (e) {
+		return null;
+	}
 }
-
-
-// planið les in skjöl rá string af json
-// breyta í json senda í template
-// senda template í write file
-// TODO writfefile
-// fs.writeFile(path.join('dist', 'index.html'), wfile);
-// hann er búin að búa til dir vantar bara fileanna
-const ip = './dist/index.html';
-// const a = parse('/dist/index.html')
-// console.log(await direxists(a.dir))
-
 
 /**
  * @param {string} fileConentString
@@ -110,12 +88,12 @@ const ip = './dist/index.html';
  * @returns {Promise}
  */
 export async function writeFile(filePathString, fileConentString) {
-  const { dir } = parse(filePathString);
-  if (await direxists(dir)) {
-    await fsWriteFile(filePathString, fileConentString)
-  } else {
-    throw new Error(`directory:${dir} does not exist.`)
-  }
+	const { dir } = parse(filePathString);
+	if (await direxists(dir)) {
+		await fsWriteFile(filePathString, fileConentString)
+	} else {
+		throw new Error(`directory:${dir} does not exist.`)
+	}
 }
 
 
