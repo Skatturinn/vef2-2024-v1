@@ -31,7 +31,6 @@
 		"browser-sync": "^3.0.2",
 		"concurrently": "^8.2.2",
 		"copy-and-watch": "^0.1.6",
-		"cpy": "^11.0.0",
 		"cross-env": "^7.0.3",
 		"eslint": "^8.56.0",
 		"eslint-config-airbnb-base": "^15.0.0",
@@ -50,6 +49,7 @@
 		]
 	},
 	"dependencies": {
+		"cpy-cli": "^5.0.0",
 		"path": "^0.12.7",
 		"sass": "^1.70.0"
 	}
