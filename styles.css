@@ -59,6 +59,7 @@ header nav {
   flex-direction: row;
   justify-content: space-around;
 }
+
 a {
   margin: 0.5em;
   color: inherit;
@@ -146,17 +147,14 @@ tr :nth-child(odd) {
   max-height: fit-content;
 }
 .lid:nth-child(even) div .teamname {
-  grid-row: 1;
   grid-column-end: span 2;
   text-align: end;
 }
 .lid:nth-child(even) div .teamname__skorudu {
-  grid-row: 2;
   grid-column-start: 1;
   justify-self: start;
 }
 .lid:nth-child(even) div .teamname__skor {
-  grid-row: 3;
   grid-column-start: 1;
   font-size: 5em;
   max-height: 1em;
@@ -165,14 +163,11 @@ tr :nth-child(odd) {
   justify-self: start;
 }
 .lid:nth-child(even) div .teamname__stig {
-  grid-row: 4;
   grid-column-start: 1;
   justify-self: start;
-  text-align: center;
   padding: 0 0 0 0.5em;
 }
 .lid:nth-child(even) div .teamname__vollur {
-  grid-row: 3;
   justify-self: end;
 }
 .lid:nth-child(odd) .jafn {
@@ -192,17 +187,11 @@ tr :nth-child(odd) {
   max-width: fit-content;
   max-height: fit-content;
 }
-.lid:nth-child(odd) div .teamname {
-  grid-row: 1;
-  grid-column-end: span 2;
-}
 .lid:nth-child(odd) div .teamname__skorudu {
-  grid-row: 2;
   grid-column: 2;
   justify-self: end;
 }
 .lid:nth-child(odd) div .teamname__skor {
-  grid-row: 3;
   grid-column-start: 2;
   font-size: 5em;
   max-height: 1em;
@@ -211,14 +200,9 @@ tr :nth-child(odd) {
   justify-self: end;
 }
 .lid:nth-child(odd) div .teamname__stig {
-  grid-row: 4;
   grid-column-start: 2;
   justify-self: end;
-  text-align: center;
   padding: 0 0.5em 0 0;
-}
-.lid:nth-child(odd) div .teamname__vollur {
-  grid-row: 3;
 }
 
 li div {
@@ -239,27 +223,23 @@ li div div {
 }
 .teamname__skorudu {
   grid-row: 2;
-  grid-column: 2;
-  justify-self: end;
 }
 .teamname__skor {
   grid-row: 3;
-  grid-column-start: 2;
   font-size: 5em;
   max-height: 1em;
   margin: 0;
   padding: 0;
-  justify-self: end;
 }
 .teamname__stig {
   grid-row: 4;
-  grid-column-start: 2;
-  justify-self: end;
   text-align: center;
   padding: 0 0.5em 0 0;
 }
 .teamname__vollur {
-  grid-row: 3;
+  grid-row-start: 2;
+  grid-row-end: span 3;
+  align-self: end;
 }
 
 /*# sourceMappingURL=styles.css.map */

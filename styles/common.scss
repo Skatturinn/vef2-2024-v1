@@ -12,26 +12,15 @@ header {
 
 	nav {
 		justify-self: center;
-		// flex: 1;
-		// min-width: 30vw;
 		width: 100%;
 		justify-content: center;
 	}
-
 }
 
 .hlekkir {
 	display: flex;
 	flex-direction: row;
-	// gap: 2em;
-	// flex: 1;
-
 	justify-content: space-around;
-
-	// padding: 0 2em;
-	li {
-		// flex: 2;
-	}
 }
 
 a {

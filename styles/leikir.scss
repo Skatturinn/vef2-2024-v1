@@ -62,19 +62,15 @@ $white: #fff;
 			}
 
 			.teamname {
-				grid-row: 1;
 				grid-column-end: span 2;
 				text-align: end;
 
 				&__skorudu {
-					grid-row: 2;
 					grid-column-start: 1;
 					justify-self: start;
-					// width: 6.5em;
 				}
 
 				&__skor {
-					grid-row: 3;
 					grid-column-start: 1;
 					font-size: 5em;
 					max-height: 1em;
@@ -84,16 +80,12 @@ $white: #fff;
 				}
 
 				&__stig {
-					grid-row: 4;
 					grid-column-start: 1;
 					justify-self: start;
-					text-align: center;
 					padding: 0 0 0 0.5em;
-					// width: 1em;
 				}
 
 				&__vollur {
-					grid-row: 3;
 					justify-self: end;
 				}
 			}
@@ -125,19 +117,12 @@ $white: #fff;
 			}
 
 			.teamname {
-				grid-row: 1;
-				grid-column-end: span 2;
-
-
 				&__skorudu {
-					grid-row: 2;
 					grid-column: 2;
 					justify-self: end;
-					// width: 6.5em;
 				}
 
 				&__skor {
-					grid-row: 3;
 					grid-column-start: 2;
 					font-size: 5em;
 					max-height: 1em;
@@ -147,17 +132,9 @@ $white: #fff;
 				}
 
 				&__stig {
-					grid-row: 4;
 					grid-column-start: 2;
 					justify-self: end;
-					text-align: center;
 					padding: 0 0.5em 0 0;
-					// width: 1em;
-				}
-
-				&__vollur {
-					grid-row: 3;
-					// height: fit-content;
 				}
 			}
 
@@ -173,140 +150,10 @@ li {
 		grid-template-columns: 1fr 1fr;
 		grid-template-rows: 2em 2em 1fr 2em;
 
-		// height: 150px;
 		div {
 			display: block;
 		}
-
 	}
-
-	// &:nth-child(even) {
-	// 	.jafn {
-	// 		background: linear-gradient(145deg, $jafn, white);
-	// 		border-right: $jafn 2px solid;
-	// 	}
-
-	// 	.vann {
-	// 		background: linear-gradient(145deg, $vann, white);
-	// 		border-right: $vannborder 2px solid;
-	// 	}
-
-	// 	.tap {
-	// 		background: linear-gradient(145deg, $tap, white);
-	// 		border-right: $tapborder 2px solid;
-	// 	}
-
-	// 	div {
-
-	// 		div {
-	// 			padding: 0;
-	// 			max-width: fit-content;
-	// 			max-height: fit-content;
-	// 		}
-
-	// 		.teamname {
-	// 			grid-row: 1;
-	// 			grid-column-end: span 2;
-	// 			text-align: end;
-
-	// 			&__skorudu {
-	// 				grid-row: 2;
-	// 				grid-column-start: 1;
-	// 				justify-self: start;
-	// 				// width: 6.5em;
-	// 			}
-
-	// 			&__skor {
-	// 				grid-row: 3;
-	// 				grid-column-start: 1;
-	// 				font-size: 5em;
-	// 				max-height: 1em;
-	// 				margin: 0;
-	// 				padding: 0;
-	// 				justify-self: start;
-	// 			}
-
-	// 			&__stig {
-	// 				grid-row: 4;
-	// 				grid-column-start: 1;
-	// 				justify-self: start;
-	// 				text-align: center;
-	// 				padding: 0 0 0 0.5em;
-	// 				// width: 1em;
-	// 			}
-
-	// 			&__vollur {
-	// 				grid-row: 3;
-	// 				justify-self: end;
-	// 			}
-	// 		}
-
-	// 	}
-	// }
-
-	// &:nth-child(odd) {
-	// 	.jafn {
-	// 		background: linear-gradient(-145deg, $jafn, white);
-	// 		border-left: $jafn 2px solid;
-	// 	}
-
-	// 	.vann {
-	// 		background: linear-gradient(-145deg, $vann, white);
-	// 		border-left: $vannborder 2px solid;
-	// 	}
-
-	// 	.tap {
-	// 		background: linear-gradient(-145deg, $tap, white);
-	// 		border-left: $tapborder 2px solid;
-	// 	}
-
-	// 	div {
-
-	// 		div {
-	// 			padding: 0;
-	// 			max-width: fit-content;
-	// 			max-height: fit-content;
-	// 		}
-
-	// 		.teamname {
-	// 			grid-row: 1;
-	// 			grid-column-end: span 2;
-
-
-	// 			&__skorudu {
-	// 				grid-row: 2;
-	// 				grid-column: 2;
-	// 				justify-self: end;
-	// 				// width: 6.5em;
-	// 			}
-
-	// 			&__skor {
-	// 				grid-row: 3;
-	// 				grid-column-start: 2;
-	// 				font-size: 5em;
-	// 				max-height: 1em;
-	// 				margin: 0;
-	// 				padding: 0;
-	// 				justify-self: end;
-	// 			}
-
-	// 			&__stig {
-	// 				grid-row: 4;
-	// 				grid-column-start: 2;
-	// 				justify-self: end;
-	// 				text-align: center;
-	// 				padding: 0 0.5em 0 0;
-	// 				// width: 1em;
-	// 			}
-
-	// 			&__vollur {
-	// 				grid-row: 3;
-	// 				// height: fit-content;
-	// 			}
-	// 		}
-
-	// 	}
-	// }
 }
 
 .teamname {
@@ -316,32 +163,25 @@ li {
 
 	&__skorudu {
 		grid-row: 2;
-		grid-column: 2;
-		justify-self: end;
-		// width: 6.5em;
 	}
 
 	&__skor {
 		grid-row: 3;
-		grid-column-start: 2;
 		font-size: 5em;
 		max-height: 1em;
 		margin: 0;
 		padding: 0;
-		justify-self: end;
 	}
 
 	&__stig {
 		grid-row: 4;
-		grid-column-start: 2;
-		justify-self: end;
 		text-align: center;
 		padding: 0 0.5em 0 0;
-		// width: 1em;
 	}
 
 	&__vollur {
-		grid-row: 3;
-		// height: fit-content;
+		grid-row-start: 2;
+		grid-row-end: span 3;
+		align-self: end;
 	}
 }
