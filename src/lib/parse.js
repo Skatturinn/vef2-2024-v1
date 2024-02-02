@@ -25,7 +25,6 @@ export async function parseTeamsJson(data, files) {
 			return {}
 		}
 	} catch (e) {
-		console.error(e)
 		return {}
 	}
 	for (const stak of teams) {
