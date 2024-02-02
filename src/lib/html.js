@@ -47,7 +47,7 @@ export function hlekkur(href, content) {
  */
 export function returnMatchdiv(site, name, score, stig) {
 	return `
-		<div class="${(stig === 1 && 'jafn') || stig ? 'vann' : 'tap'}">
+		<div class="${(stig === 1 && 'jafn') || (stig ? 'vann' : 'tap')}">
 		<h2 class="teamname">${name}</h2>
 		<div class="teamname__skorudu">Skoruðu</div>
 		<div class="teamname__skor">${score}</div>

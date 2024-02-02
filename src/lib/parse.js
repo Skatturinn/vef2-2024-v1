@@ -44,9 +44,12 @@ export async function parseTeamsJson(data, files) {
 				stada[uti.name] += vann[1];
 			}
 		}
+		const stringDagsetning = String(
+			fcJson.date.slice(0, 10).split('-').reverse()
+		).replaceAll(',', '/')
 		leikir.push({
 			date: new Date(fcJson.date),
-			html: `<p class="leikir__dagsetning">${fcJson.date}</p>${htmlListString('leikir__leikirnir', false, leikur)}`
+			html: `<p class="leikir__dagsetning">${stringDagsetning}</p>${htmlListString('leikir__leikirnir', false, leikur)}`
 		})
 	}
 	const tbody = teams.map(stak =>

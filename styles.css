@@ -19,6 +19,7 @@ html,
 body {
   overflow-wrap: anywhere;
   min-height: 100vh;
+  color: #0c1438;
 }
 
 button,
@@ -36,9 +37,7 @@ ul {
 }
 
 body {
-  max-width: 1400px;
-  margin: 0 auto;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 header {
@@ -51,8 +50,7 @@ header {
 }
 header nav {
   justify-self: center;
-  width: 80%;
-  max-width: 50vw;
+  width: 100%;
   justify-content: center;
 }
 header nav ul {
@@ -60,36 +58,166 @@ header nav ul {
   flex-direction: row;
   justify-content: space-around;
 }
+a {
+  margin: 0.5em;
+  color: inherit;
+  text-decoration: none;
+  border: 1px #0c1438 solid;
+  padding: 0.25em 1em;
+  border-radius: 1em;
+}
+
+footer {
+  padding: 1em 0;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
 section .teksti {
-  max-width: 500px;
+  max-width: 720px;
   margin: 0 auto;
 }
 section .teksti article {
   padding: 0.5em 0;
 }
 
+.tafla {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.tafla tbody tr :nth-child(even) {
+  text-align: center;
+}
+
+.leikir__dagsetning {
+  position: relative;
+  width: 100vw;
+  text-align: center;
+  font-size: 2em;
+  border-top: black 2px solid;
+  border-bottom-width: 50%;
+  padding: 0.5em;
+  z-index: 10;
+  filter: drop-shadow(0px 10px 10px white);
+  background-color: white;
+  margin: 0 auto;
+}
+.leikir__leikirnir {
+  max-width: 1440px;
+  margin: 0 auto;
+}
 .leikir__lid {
+  height: fit-content;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  filter: drop-shadow(10px 30px 50px #000000);
+}
+.leikir__lid li:nth-child(even) .jafn {
+  background: linear-gradient(145deg, #FCF4A3, white);
+  border-right: #FCF4A3 2px solid;
 }
 .leikir__lid li:nth-child(even) .vann {
-  background: linear-gradient(145deg, #058743, white);
+  background: linear-gradient(145deg, #77DD77, white);
+  border-right: #058743 2px solid;
 }
 .leikir__lid li:nth-child(even) .tap {
-  background: linear-gradient(145deg, #ED2939, white);
+  background: linear-gradient(145deg, #FF6961, white);
+  border-right: #ED2939 2px solid;
+}
+.leikir__lid li:nth-child(even) div div {
+  padding: 0;
+  max-width: fit-content;
+  max-height: fit-content;
+}
+.leikir__lid li:nth-child(even) div .teamname {
+  grid-row: 1;
+  grid-column-end: span 2;
+  text-align: end;
+}
+.leikir__lid li:nth-child(even) div .teamname__skorudu {
+  grid-row: 2;
+  grid-column-start: 1;
+  justify-self: start;
+}
+.leikir__lid li:nth-child(even) div .teamname__skor {
+  grid-row: 3;
+  grid-column-start: 1;
+  font-size: 5em;
+  max-height: 1em;
+  margin: 0;
+  padding: 0;
+  justify-self: start;
+}
+.leikir__lid li:nth-child(even) div .teamname__stig {
+  grid-row: 4;
+  grid-column-start: 1;
+  justify-self: start;
+  text-align: center;
+  padding: 0 0 0 0.5em;
+}
+.leikir__lid li:nth-child(even) div .teamname__vollur {
+  grid-row: 3;
+  justify-self: end;
+}
+.leikir__lid li:nth-child(odd) .jafn {
+  background: linear-gradient(-145deg, #FCF4A3, white);
+  border-left: #FCF4A3 2px solid;
 }
 .leikir__lid li:nth-child(odd) .vann {
-  background: linear-gradient(-145deg, #058743, white);
+  background: linear-gradient(-145deg, #77DD77, white);
+  border-left: #058743 2px solid;
 }
 .leikir__lid li:nth-child(odd) .tap {
-  background: linear-gradient(-145deg, #ED2939, white);
+  background: linear-gradient(-145deg, #FF6961, white);
+  border-left: #ED2939 2px solid;
+}
+.leikir__lid li:nth-child(odd) div div {
+  padding: 0;
+  max-width: fit-content;
+  max-height: fit-content;
+}
+.leikir__lid li:nth-child(odd) div .teamname {
+  grid-row: 1;
+  grid-column-end: span 2;
+}
+.leikir__lid li:nth-child(odd) div .teamname__skorudu {
+  grid-row: 2;
+  grid-column: 2;
+  justify-self: end;
+}
+.leikir__lid li:nth-child(odd) div .teamname__skor {
+  grid-row: 3;
+  grid-column-start: 2;
+  font-size: 5em;
+  max-height: 1em;
+  margin: 0;
+  padding: 0;
+  justify-self: end;
+}
+.leikir__lid li:nth-child(odd) div .teamname__stig {
+  grid-row: 4;
+  grid-column-start: 2;
+  justify-self: end;
+  text-align: center;
+  padding: 0 0.5em 0 0;
+}
+.leikir__lid li:nth-child(odd) div .teamname__vollur {
+  grid-row: 3;
 }
 .leikir__lid li div {
   border-radius: 1em;
   padding: 1em;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 2em 2em 1fr 2em;
+}
+.leikir__lid li div div {
+  display: block;
+}
+
+.teamname {
+  font-size: 2em;
 }
 
 /*# sourceMappingURL=styles.css.map */

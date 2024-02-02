@@ -25,6 +25,8 @@ async function main() {
 	const { leikir, tbody } = await parseTeamsJson(teamsData, files)
 	leikir.sort((a, b) => a.date - b.date)
 	const sortleikir = leikir.map(stak => stak.html)
+	tbody.sort((a, b) => b[1] - a[1])
+	console.log(tbody)
 	try {
 		await writeFile('./dist/leikir.html',
 			template('Leikir',

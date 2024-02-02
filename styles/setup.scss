@@ -1,3 +1,5 @@
+$bc: #0c1438;
+
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -20,6 +22,8 @@ body {
 	// max-width: 100%;
 	overflow-wrap: anywhere;
 	min-height: 100vh;
+	color: $bc;
+
 }
 
 button,
