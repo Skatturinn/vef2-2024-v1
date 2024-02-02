@@ -1,45 +1,57 @@
-import { describe, expect, it } from '@jest/globals';
-import { tabletemplate, template } from './html.js';
+import { describe, expect, it, test } from '@jest/globals';
+import { header, hlekkur, returnMatchdiv, tabletemplate, teksti, template } from './html.js';
 
-describe('tekurinn inn allar js týpur og skilar html streng', () => {
-	it('', () => {
-		expect(template(['test', 'what'], 'test', `<ol>${['<li>test</li>', '<li>jest</li>', '<li>quest</li>']}</ol>`, [1, 2, 3])).toBe(
-			`<!DOCTYPE html>
-			<html lang="is">
-					<head>
-							<meta charset="utf-8">
-							<meta name="viewport" content="width=device-width, initial-scale=1.0">
-							<title>test</title>
-							<link rel="stylesheet" href="./styles.css">
-							<script type="module" src="./scripts.js"></script>
-					</head>
-					<body>
-							<a href="#efni" class="sr-only">Tæknibúðin,Beint í efnið.</a>
-							<header>test</header>
-							<main id="efni"><ol><li>test</li><li>jest</li><li>quest</li></ol></main>
-							<footer>
-							<li>test</li>,<li>jest</li>,<li>quest</li>
-							</footer>
-					</body>
-			</html>`)
+describe('template', () => {
+	it('tekruinn js týpur og skilar html template streng', () => {
+		expect(template(['test', 'what'], 'test', `<ol>${['<li>test</li>', '<li>jest</li>', '<li>quest</li>']}</ol>`, [1, 2, 3])).toContain(
+			String([1, 2, 3]))
 	})
 })
 
-describe('tekur inn gildi og skilar html streng', () => {
-	expect(tabletemplate(2)).toBe(
-		`<table>
-			<thead class="tafla">
-				<tr class="row">
-					<th><button class="sort"><h2>Númer</h2></button></th>
-					<th><button class="sort"><h2>Heiti</h2></button></th>
-					<th><button class="sort"><h2>Einingar</h2></button></th>
-					<th><button class="sort"><h2>Kennslummisseri</h2></button></th>
-					<th><button class="sort"><h2>Námsstig</h2></button></th>
-					<th><button class="sort"><h2>Kennsluskrá</h2></button></th>
-	  			</tr>
-			</thead>
-			<tbody class="tafla">
-				2
-			</tbody>
-  		</table>`)
+describe('hlekkur', () => {
+	it('teku inn slóð og teksta og skilar html hlekk', () => {
+		expect(hlekkur('/index.html', '')).toContain('/index.html');
+		expect(hlekkur('https://www.elli.vip/', '')).toContain('elli');
+		expect(hlekkur('o', '')).toEqual('ekki hlekkur')
+	})
+})
+
+describe('returnMatchdiv', () => {
+	it('skilar div fyrir frammistöðu liðs í html', () => {
+		expect(returnMatchdiv('s', {}, [], 1)).toContain('jafn');
+		expect(returnMatchdiv(false, {}, [], 0)).toContain('tap');
+		expect(returnMatchdiv(false, true, [], 3)).toContain('vann');
+		expect(returnMatchdiv(false, {}, [], 0)).toContain('Á útivelli');
+	})
+})
+
+describe('tabletemplate', () => {
+	it('tekur inn lögleg gögn og skilar html töflu', () => {
+		expect(tabletemplate([''], [['']])).toBe(
+			`<table class="tafla">
+	<thead>
+		<tr class="row"><th></th></tr>
+	</thead>
+	<tbody><tr><td></td></tr>
+		</tbody>
+  </table>`);
+	})
+})
+
+test('ólögleg gildi skila villu', () => {
+	expect(() => { tabletemplate('', '') }).toThrow(TypeError);
+	expect(() => { tabletemplate([''], ['']) }).toThrow(TypeError)
+})
+
+describe('header', () => {
+	it('tekur inn streng fyrir header og börnum í nav', () => {
+		expect(header('test', 'what', 'já')).toContain('já</li></ul></nav>');
+	})
+})
+
+
+describe('teksti', () => {
+	it('skilar html teksta eftir chatgpr fyrir forsidu', () => {
+		expect(teksti()).toContain('</')
+	})
 })

@@ -1,0 +1,15 @@
+{
+	"date": "today",
+	"games": [
+		{
+			"home": {
+				"name": "Skotföstu kempurnar",
+				"score": 5
+			},
+			"away": {
+				"name": "Hraðaliðið",
+				"score": 4
+			}
+		}
+	]
+}

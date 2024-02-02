@@ -25,6 +25,10 @@ export async function direxists(dir) {
 	}
 }
 
+/**
+ * 
+ * @param {string} dir 
+ */
 export async function createDirIfNotExists(dir) {
 	if (!(await direxists(dir))) {
 		await mkdir(dir);
@@ -81,7 +85,6 @@ export async function readFilesFromDir(dir) {
 export async function readFile(file, { encoding = 'utf8' } = {}) {
 	try {
 		const content = await fsReadFile(file, { encoding });
-
 		return content.toString(encoding);
 	} catch (e) {
 		return null;
@@ -89,6 +92,7 @@ export async function readFile(file, { encoding = 'utf8' } = {}) {
 }
 
 /**
+ * Skrifar skrár í build scriptu
  * @param {string} fileConentString
  * @param {string} filePathString  
  * @returns {Promise}
@@ -98,10 +102,6 @@ export async function writeFile(filePathString, fileConentString) {
 	if (await direxists(dir)) {
 		await fsWriteFile(filePathString, fileConentString)
 	} else {
-		throw new Error(`directory:${dir} does not exist.`)
+		throw new Error('directory does not exist.')
 	}
 }
-
-
-
-

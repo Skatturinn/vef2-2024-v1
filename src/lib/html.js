@@ -1,3 +1,5 @@
+import { parse } from 'path';
+
 /**
  * skilar html formi fyrir vefsíðu
  * @param {string | any} title
@@ -34,7 +36,11 @@ export function template(title, head, main, foot) {
  * @returns {string}
  */
 export function hlekkur(href, content) {
-	return `<a href="${href}">${content}</a>`
+	const newhref = URL.canParse(href) ? (new URL(href)).href : false;
+	if (parse(href)?.root === '/' || newhref) {
+		return `<a href="${newhref || href}">${content}</a>`
+	}
+	return 'ekki hlekkur'
 }
 
 /**
@@ -63,14 +69,20 @@ export function returnMatchdiv(site, name, score, stig) {
  * @returns {string}
  */
 export function tabletemplate(thead, tbody) {
+	if (
+		!Array.isArray(thead) ||
+		!Array.isArray(tbody)
+	) {
+		throw new TypeError(`Inntök eru ekki á réttu formi
+		@param {Array<string>} thead 
+  		@param {Array<Array<string>>} tbody `)
+	}
 	let table = `<table class="tafla">
 	<thead>
 		<tr class="row">`
-	if (Array.isArray(thead)) {
-		thead.forEach((stak) => {
-			table += `<th>${stak}</th>`;
-		})
-	}
+	thead.forEach((stak) => {
+		table += `<th>${stak}</th>`;
+	})
 	table += `</tr>
 	</thead>
 	<tbody>`
@@ -81,6 +93,12 @@ export function tabletemplate(thead, tbody) {
 				table += `<td>${innihald}</td>`;
 			}
 			table += '</tr>'
+		} else {
+			throw new TypeError(`Inntök 
+			eru ekki á réttu formi 
+			@param {Array<string>} thead @param 
+			{Array<Array<string>>} tbody
+			Þar sem hver lína í fylkinu tbody er jafnlöng og thead`)
 		}
 	})
 	table += `
@@ -121,7 +139,7 @@ export function htmlListString(className, liclassName, ordered, ...children) {
 }
 
 /**
- * 
+ * Býr til nav html stren með börnum
  * @param  {...string} children 
  * @returns {string}
  */

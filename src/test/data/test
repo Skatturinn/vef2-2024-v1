@@ -1,0 +1,15 @@
+{
+	"date": "2024-01-22T15:20:53.955Z",
+	"games": [
+		{
+			"home": {
+				"name": true,
+				"score": false
+			},
+			"away": {
+				"name": "baccarat",
+				"score": "poker"
+			}
+		}
+	]
+}
