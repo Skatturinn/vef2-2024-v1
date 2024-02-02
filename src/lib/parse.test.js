@@ -1,4 +1,4 @@
-import { beforeAll, describe, expect, it } from '@jest/globals';
+import { beforeAll, describe, expect, it, test } from '@jest/globals';
 import { parseTeamsJson } from './parse';
 
 describe('parse', () => {
