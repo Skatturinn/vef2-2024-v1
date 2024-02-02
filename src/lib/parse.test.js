@@ -21,8 +21,8 @@ describe('parse', () => {
 	}
 	beforeAll(async () => {
 		obj1 = await parseTeamsJson('{}', ['']);
-		obj2 = await parseTeamsJson('["boltaliðið"]', ['data\\gameday-1230.json'])
-		obj3 = await parseTeamsJson('', ['data\\gameday-1230.json'])
+		obj2 = await parseTeamsJson('["boltaliðið"]', ['data/gameday-1230.json'])
+		obj3 = await parseTeamsJson('', ['data/gameday-1230.json'])
 		obj4 = await parseTeamsJson('["boltaliðið"]', ['./test/data/test.json'])
 		obj5 = await parseTeamsJson('["boltaliðið"]', ['./test/data/test2.json'])
 		obj6 = await parseTeamsJson(`["Boltaliðið",
