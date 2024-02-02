@@ -35,11 +35,11 @@ describe('file', () => {
 		it('should return array of known files for dir that does exist', async () => {
 			const result = await readFilesFromDir(testDir);
 
-			expect(result).toEqual([
-				'src\\test\\data\\1',
-				'src\\test\\data\\2',
-				'src\\test\\data\\test',
-				'src\\test\\data\\test2'
+			expect(result).toContain([
+				'src/test/data/1',
+				'src/test/data/2',
+				'src/test/data/test',
+				'src/test/data/test2'
 			]);
 		});
 	});

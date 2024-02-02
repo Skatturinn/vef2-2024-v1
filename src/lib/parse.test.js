@@ -37,10 +37,10 @@ describe('parse', () => {
 			"Ósigrandi skotfólkið",
 			"Óhemjurnar",
 			"Hraðaliðið"
-		  ]`, ['data\\gameday-1230.json'])
+		  ]`, ['data/gameday-1230.json'])
 	});
 	describe('parseTeamsJson', () => {
-		it('should have a test', () => {
+		it('Should return a object of leikir and tbody of valid or emptu obj', () => {
 			expect(obj1).toEqual({});
 			expect(obj2).toEqual(d);
 			expect(obj3).toEqual({});
