@@ -9,10 +9,25 @@ import {
 import { stig } from './score.js';
 import { nameScoreValidation } from './validation.js';
 
+/**
+ * 
+ * @param {string} data 
+ * @param {Array<string>} files 
+ * @returns {Promise<object>}
+ */
 export async function parseTeamsJson(data, files) {
 	const stada = {};
 	const leikir = [];
-	const teams = JSON.parse(data);
+	let teams;
+	try {
+		teams = JSON.parse(data);
+		if (!teams || typeof teams[Symbol.iterator] !== 'function') {
+			return {}
+		}
+	} catch (e) {
+		console.error(e)
+		return {}
+	}
 	for (const stak of teams) {
 		stada[stak] = 0;
 	}

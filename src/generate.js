@@ -22,11 +22,14 @@ async function main() {
 	const files = await readFilesFromDir(INPUT_DIR);
 	const teamsFile = files.find(file => file.includes('teams'));
 	const teamsData = typeof teamsFile === 'string' && await readFile(teamsFile);
+	if (typeof teamsData !== 'string') {
+		throw new Error('readFile skilaði ekki streng fyrir teamsData')
+	}
 	const { leikir, tbody } = await parseTeamsJson(teamsData, files)
+	console.log(await parseTeamsJson('', ['data\\gameday-1230.json']))
 	leikir.sort((a, b) => a.date - b.date)
 	const sortleikir = leikir.map(stak => stak.html)
 	tbody.sort((a, b) => b[1] - a[1])
-	console.log(tbody)
 	try {
 		await writeFile('./dist/leikir.html',
 			template('Leikir',
