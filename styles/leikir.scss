@@ -55,6 +55,8 @@ $white: #fff;
 		}
 
 		div {
+			grid-template-columns: 1fr 2fr;
+
 			div {
 				padding: 0;
 				max-width: fit-content;
@@ -110,6 +112,8 @@ $white: #fff;
 		}
 
 		div {
+			grid-template-columns: 2fr 1fr;
+
 			div {
 				padding: 0;
 				max-width: fit-content;
@@ -147,7 +151,7 @@ li {
 		border-radius: 1em;
 		padding: 1em;
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: 2fr 1fr;
 		grid-template-rows: 2em 2em 1fr 2em;
 
 		div {
@@ -183,5 +187,13 @@ li {
 		grid-row-start: 2;
 		grid-row-end: span 3;
 		align-self: end;
+	}
+}
+
+@media (max-width: 400px) {
+	.teamname {
+		&__skorudu {
+			display: none;
+		}
 	}
 }
