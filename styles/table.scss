@@ -1,14 +1,29 @@
+$tap: #FF6961;
+$vann: #77DD77;
+
 .tafla {
 	width: 100%;
 	max-width: 720px;
 	margin: 0 auto;
+	border-collapse: collapse;
+	font-size: 1.75em;
 
 	tbody {
+		border-top: 1px black solid;
+
 		tr {
 			:nth-child(even) {
 				text-align: center;
 			}
+
+			:nth-child(odd) {
+				background-color: white;
+			}
+
+			border-bottom: 1px black solid;
 		}
+
+		background: linear-gradient(180deg, $vann, $tap);
 	}
 
 }

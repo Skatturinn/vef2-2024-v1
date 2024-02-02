@@ -85,9 +85,21 @@ section .teksti article {
   width: 100%;
   max-width: 720px;
   margin: 0 auto;
+  border-collapse: collapse;
+  font-size: 1.75em;
+}
+.tafla tbody {
+  border-top: 1px black solid;
+  background: linear-gradient(180deg, #77DD77, #FF6961);
+}
+.tafla tbody tr {
+  border-bottom: 1px black solid;
 }
 .tafla tbody tr :nth-child(even) {
   text-align: center;
+}
+.tafla tbody tr :nth-child(odd) {
+  background-color: white;
 }
 
 .leikir__dagsetning {
