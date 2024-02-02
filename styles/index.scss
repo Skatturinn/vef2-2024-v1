@@ -1,11 +1,8 @@
-section {
+.teksti {
+	max-width: 720px;
+	margin: 0 auto;
 
-	.teksti {
-		max-width: 720px;
-		margin: 0 auto;
-
-		article {
-			padding: 0.5em 0;
-		}
+	article {
+		padding: 0.5em 0;
 	}
 }

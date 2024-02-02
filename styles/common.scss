@@ -16,24 +16,23 @@ header {
 		// min-width: 30vw;
 		width: 100%;
 		justify-content: center;
-
-		ul {
-			display: flex;
-			flex-direction: row;
-			// gap: 2em;
-			// flex: 1;
-
-			justify-content: space-around;
-
-			// padding: 0 2em;
-			li {
-				// flex: 2;
-			}
-		}
 	}
 
 }
 
+.hlekkir {
+	display: flex;
+	flex-direction: row;
+	// gap: 2em;
+	// flex: 1;
+
+	justify-content: space-around;
+
+	// padding: 0 2em;
+	li {
+		// flex: 2;
+	}
+}
 
 a {
 	margin: 0.5em;
@@ -45,7 +44,7 @@ a {
 }
 
 footer {
-	padding: 1em 0;
+	padding: 1em;
 	margin: 0 auto;
 	max-width: 800px;
 }

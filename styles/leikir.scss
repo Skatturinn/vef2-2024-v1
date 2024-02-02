@@ -1,22 +1,24 @@
 $tap: #FF6961;
-$vann: #77DD77;
+$vann: #7D7;
 $jafn: #FCF4A3;
 $vannborder: #058743;
 $tapborder: #ED2939;
+$black: #000;
+$top: 10;
+$white: #fff;
 
 .leikir {
-
 	&__dagsetning {
 		position: relative;
 		width: 100vw;
 		text-align: center;
 		font-size: 2em;
-		border-top: black 2px solid;
+		border-top: $black 2px solid;
 		border-bottom-width: 50%;
 		padding: 0.5em;
-		z-index: 10;
-		filter: drop-shadow(0px 10px 10px white);
-		background-color: white;
+		z-index: $top;
+		filter: drop-shadow(0 10px 10px $white);
+		background-color: $white;
 		margin: 0 auto;
 
 	}
@@ -30,160 +32,316 @@ $tapborder: #ED2939;
 		height: fit-content;
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		$higlight: #000000;
-		// filter: drop-shadow(10px 30px 50px #000000);
-		filter: drop-shadow(10px 30px 50px #000000);
+		$higlight: $black;
+		filter: drop-shadow(10px 30px 50px $black);
+	}
+}
 
-		li {
-			// text-shadow: white 0px 0px 0.75em;
-			// position: relative;
+.lid {
+	&:nth-child(even) {
+		.jafn {
+			background: linear-gradient(145deg, $jafn, $white);
+			border-right: $jafn 2px solid;
+		}
 
+		.vann {
+			background: linear-gradient(145deg, $vann, $white);
+			border-right: $vannborder 2px solid;
+		}
 
-			&:nth-child(even) {
-				.jafn {
-					background: linear-gradient(145deg, $jafn, white);
-					border-right: $jafn 2px solid;
-				}
+		.tap {
+			background: linear-gradient(145deg, $tap, $white);
+			border-right: $tapborder 2px solid;
+		}
 
-				.vann {
-					background: linear-gradient(145deg, $vann, white);
-					border-right: $vannborder 2px solid;
-				}
-
-				.tap {
-					background: linear-gradient(145deg, $tap, white);
-					border-right: $tapborder 2px solid;
-				}
-
-				div {
-
-					div {
-						padding: 0;
-						max-width: fit-content;
-						max-height: fit-content;
-					}
-
-					.teamname {
-						grid-row: 1;
-						grid-column-end: span 2;
-						text-align: end;
-
-						&__skorudu {
-							grid-row: 2;
-							grid-column-start: 1;
-							justify-self: start;
-							// width: 6.5em;
-						}
-
-						&__skor {
-							grid-row: 3;
-							grid-column-start: 1;
-							font-size: 5em;
-							max-height: 1em;
-							margin: 0;
-							padding: 0;
-							justify-self: start;
-						}
-
-						&__stig {
-							grid-row: 4;
-							grid-column-start: 1;
-							justify-self: start;
-							text-align: center;
-							padding: 0 0 0 0.5em;
-							// width: 1em;
-						}
-
-						&__vollur {
-							grid-row: 3;
-							justify-self: end;
-						}
-					}
-
-				}
-			}
-
-			&:nth-child(odd) {
-				.jafn {
-					background: linear-gradient(-145deg, $jafn, white);
-					border-left: $jafn 2px solid;
-				}
-
-				.vann {
-					background: linear-gradient(-145deg, $vann, white);
-					border-left: $vannborder 2px solid;
-				}
-
-				.tap {
-					background: linear-gradient(-145deg, $tap, white);
-					border-left: $tapborder 2px solid;
-				}
-
-				div {
-
-					div {
-						padding: 0;
-						max-width: fit-content;
-						max-height: fit-content;
-					}
-
-					.teamname {
-						grid-row: 1;
-						grid-column-end: span 2;
-
-
-						&__skorudu {
-							grid-row: 2;
-							grid-column: 2;
-							justify-self: end;
-							// width: 6.5em;
-						}
-
-						&__skor {
-							grid-row: 3;
-							grid-column-start: 2;
-							font-size: 5em;
-							max-height: 1em;
-							margin: 0;
-							padding: 0;
-							justify-self: end;
-						}
-
-						&__stig {
-							grid-row: 4;
-							grid-column-start: 2;
-							justify-self: end;
-							text-align: center;
-							padding: 0 0.5em 0 0;
-							// width: 1em;
-						}
-
-						&__vollur {
-							grid-row: 3;
-							// height: fit-content;
-						}
-					}
-
-				}
-			}
-
+		div {
 			div {
-				border-radius: 1em;
-				padding: 1em;
-				display: grid;
-				grid-template-columns: 1fr 1fr;
-				grid-template-rows: 2em 2em 1fr 2em;
+				padding: 0;
+				max-width: fit-content;
+				max-height: fit-content;
+			}
 
-				// height: 150px;
-				div {
-					display: block;
+			.teamname {
+				grid-row: 1;
+				grid-column-end: span 2;
+				text-align: end;
+
+				&__skorudu {
+					grid-row: 2;
+					grid-column-start: 1;
+					justify-self: start;
+					// width: 6.5em;
 				}
 
+				&__skor {
+					grid-row: 3;
+					grid-column-start: 1;
+					font-size: 5em;
+					max-height: 1em;
+					margin: 0;
+					padding: 0;
+					justify-self: start;
+				}
+
+				&__stig {
+					grid-row: 4;
+					grid-column-start: 1;
+					justify-self: start;
+					text-align: center;
+					padding: 0 0 0 0.5em;
+					// width: 1em;
+				}
+
+				&__vollur {
+					grid-row: 3;
+					justify-self: end;
+				}
 			}
+
+		}
+	}
+
+	&:nth-child(odd) {
+		.jafn {
+			background: linear-gradient(-145deg, $jafn, $white);
+			border-left: $jafn 2px solid;
+		}
+
+		.vann {
+			background: linear-gradient(-145deg, $vann, $white);
+			border-left: $vannborder 2px solid;
+		}
+
+		.tap {
+			background: linear-gradient(-145deg, $tap, $white);
+			border-left: $tapborder 2px solid;
+		}
+
+		div {
+			div {
+				padding: 0;
+				max-width: fit-content;
+				max-height: fit-content;
+			}
+
+			.teamname {
+				grid-row: 1;
+				grid-column-end: span 2;
+
+
+				&__skorudu {
+					grid-row: 2;
+					grid-column: 2;
+					justify-self: end;
+					// width: 6.5em;
+				}
+
+				&__skor {
+					grid-row: 3;
+					grid-column-start: 2;
+					font-size: 5em;
+					max-height: 1em;
+					margin: 0;
+					padding: 0;
+					justify-self: end;
+				}
+
+				&__stig {
+					grid-row: 4;
+					grid-column-start: 2;
+					justify-self: end;
+					text-align: center;
+					padding: 0 0.5em 0 0;
+					// width: 1em;
+				}
+
+				&__vollur {
+					grid-row: 3;
+					// height: fit-content;
+				}
+			}
+
 		}
 	}
 }
 
+li {
+	div {
+		border-radius: 1em;
+		padding: 1em;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 2em 2em 1fr 2em;
+
+		// height: 150px;
+		div {
+			display: block;
+		}
+
+	}
+
+	// &:nth-child(even) {
+	// 	.jafn {
+	// 		background: linear-gradient(145deg, $jafn, white);
+	// 		border-right: $jafn 2px solid;
+	// 	}
+
+	// 	.vann {
+	// 		background: linear-gradient(145deg, $vann, white);
+	// 		border-right: $vannborder 2px solid;
+	// 	}
+
+	// 	.tap {
+	// 		background: linear-gradient(145deg, $tap, white);
+	// 		border-right: $tapborder 2px solid;
+	// 	}
+
+	// 	div {
+
+	// 		div {
+	// 			padding: 0;
+	// 			max-width: fit-content;
+	// 			max-height: fit-content;
+	// 		}
+
+	// 		.teamname {
+	// 			grid-row: 1;
+	// 			grid-column-end: span 2;
+	// 			text-align: end;
+
+	// 			&__skorudu {
+	// 				grid-row: 2;
+	// 				grid-column-start: 1;
+	// 				justify-self: start;
+	// 				// width: 6.5em;
+	// 			}
+
+	// 			&__skor {
+	// 				grid-row: 3;
+	// 				grid-column-start: 1;
+	// 				font-size: 5em;
+	// 				max-height: 1em;
+	// 				margin: 0;
+	// 				padding: 0;
+	// 				justify-self: start;
+	// 			}
+
+	// 			&__stig {
+	// 				grid-row: 4;
+	// 				grid-column-start: 1;
+	// 				justify-self: start;
+	// 				text-align: center;
+	// 				padding: 0 0 0 0.5em;
+	// 				// width: 1em;
+	// 			}
+
+	// 			&__vollur {
+	// 				grid-row: 3;
+	// 				justify-self: end;
+	// 			}
+	// 		}
+
+	// 	}
+	// }
+
+	// &:nth-child(odd) {
+	// 	.jafn {
+	// 		background: linear-gradient(-145deg, $jafn, white);
+	// 		border-left: $jafn 2px solid;
+	// 	}
+
+	// 	.vann {
+	// 		background: linear-gradient(-145deg, $vann, white);
+	// 		border-left: $vannborder 2px solid;
+	// 	}
+
+	// 	.tap {
+	// 		background: linear-gradient(-145deg, $tap, white);
+	// 		border-left: $tapborder 2px solid;
+	// 	}
+
+	// 	div {
+
+	// 		div {
+	// 			padding: 0;
+	// 			max-width: fit-content;
+	// 			max-height: fit-content;
+	// 		}
+
+	// 		.teamname {
+	// 			grid-row: 1;
+	// 			grid-column-end: span 2;
+
+
+	// 			&__skorudu {
+	// 				grid-row: 2;
+	// 				grid-column: 2;
+	// 				justify-self: end;
+	// 				// width: 6.5em;
+	// 			}
+
+	// 			&__skor {
+	// 				grid-row: 3;
+	// 				grid-column-start: 2;
+	// 				font-size: 5em;
+	// 				max-height: 1em;
+	// 				margin: 0;
+	// 				padding: 0;
+	// 				justify-self: end;
+	// 			}
+
+	// 			&__stig {
+	// 				grid-row: 4;
+	// 				grid-column-start: 2;
+	// 				justify-self: end;
+	// 				text-align: center;
+	// 				padding: 0 0.5em 0 0;
+	// 				// width: 1em;
+	// 			}
+
+	// 			&__vollur {
+	// 				grid-row: 3;
+	// 				// height: fit-content;
+	// 			}
+	// 		}
+
+	// 	}
+	// }
+}
+
 .teamname {
 	font-size: 2em;
+	grid-row: 1;
+	grid-column-end: span 2;
+
+	&__skorudu {
+		grid-row: 2;
+		grid-column: 2;
+		justify-self: end;
+		// width: 6.5em;
+	}
+
+	&__skor {
+		grid-row: 3;
+		grid-column-start: 2;
+		font-size: 5em;
+		max-height: 1em;
+		margin: 0;
+		padding: 0;
+		justify-self: end;
+	}
+
+	&__stig {
+		grid-row: 4;
+		grid-column-start: 2;
+		justify-self: end;
+		text-align: center;
+		padding: 0 0.5em 0 0;
+		// width: 1em;
+	}
+
+	&__vollur {
+		grid-row: 3;
+		// height: fit-content;
+	}
 }

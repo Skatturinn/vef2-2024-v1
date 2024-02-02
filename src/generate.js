@@ -26,7 +26,6 @@ async function main() {
 		throw new Error('readFile skilaði ekki streng fyrir teamsData')
 	}
 	const { leikir, tbody } = await parseTeamsJson(teamsData, files)
-	console.log(await parseTeamsJson('', ['data\\gameday-1230.json']))
 	leikir.sort((a, b) => a.date - b.date)
 	const sortleikir = leikir.map(stak => stak.html)
 	tbody.sort((a, b) => b[1] - a[1])
@@ -36,7 +35,7 @@ async function main() {
 				header('Leikir',
 					hlekkur('/', 'forsíða'),
 					hlekkur('/stada.html', 'staðan')),
-				`${htmlListString('leikir', false, sortleikir)}`,
+				`${htmlListString('leikir', '', false, sortleikir)}`,
 				hlekkur('/', 'til baka')))
 		await writeFile('./dist/stada.html',
 			template('Staðan',

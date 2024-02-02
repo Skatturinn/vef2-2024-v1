@@ -1,4 +1,10 @@
-import { readFile as fsReadFile, writeFile as fsWriteFile, mkdir, readdir, stat } from 'fs/promises';
+import {
+	readFile as fsReadFile,
+	writeFile as fsWriteFile,
+	mkdir,
+	readdir,
+	stat
+} from 'fs/promises';
 import { join, parse } from 'path';
 
 /**

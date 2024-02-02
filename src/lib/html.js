@@ -92,17 +92,18 @@ export function tabletemplate(thead, tbody) {
 /**
  * býr til ol eða ul lista
  * @param {string} className 
+ * @param {string} liclassName 
  * @param {Boolean} ordered 
  * @param  {...any} children 
  * @returns {string}
  */
-export function htmlListString(className, ordered, ...children) {
+export function htmlListString(className, liclassName, ordered, ...children) {
 	const listType = ordered ? 'ol' : 'ul';
 	let list = `<${listType} class="${className}">`
 	if (children) {
 		try {
 			children.forEach(child => {
-				const li = (stak) => typeof stak === 'string' && stak.slice(0, 3) === '<li' ? stak : `<li>${stak}</li>`
+				const li = (stak) => typeof stak === 'string' && stak.slice(0, 3) === '<li' ? stak : `<li class="${liclassName}">${stak}</li>`
 				if (Array.isArray(child)) {
 					child.forEach(grandchild => {
 						list += li(grandchild)
@@ -125,7 +126,7 @@ export function htmlListString(className, ordered, ...children) {
  * @returns {string}
  */
 export function navhtml(...children) {
-	return `<nav>${htmlListString('hlekkir', false,
+	return `<nav>${htmlListString('hlekkir', '', false,
 		children
 	)}</nav>`;
 }

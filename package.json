@@ -17,7 +17,7 @@
 		"lint": "concurrently npm:lint:*",
 		"sass2": "sass ./styles.scss ./styles.css -w",
 		"lint:eslint": "eslint ./src/**/*.js",
-		"lint:stylelint": "stylelint ./styles.css",
+		"lint:stylelint": "stylelint ./styles/*.scss",
 		"cwstyles": "copy-and-watch --watch ./styles.css ./dist/",
 		"cwscripts": "copy-and-watch --watch ./scripts.js ./dist/",
 		"dev": "concurrently npm:sass2 npm:cwstyles npm:cwscripts npm:browser-sync",

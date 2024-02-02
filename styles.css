@@ -53,7 +53,8 @@ header nav {
   width: 100%;
   justify-content: center;
 }
-header nav ul {
+
+.hlekkir {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -68,16 +69,16 @@ a {
 }
 
 footer {
-  padding: 1em 0;
+  padding: 1em;
   margin: 0 auto;
   max-width: 800px;
 }
 
-section .teksti {
+.teksti {
   max-width: 720px;
   margin: 0 auto;
 }
-section .teksti article {
+.teksti article {
   padding: 0.5em 0;
 }
 
@@ -89,17 +90,18 @@ section .teksti article {
   font-size: 1.75em;
 }
 .tafla tbody {
-  border-top: 1px black solid;
-  background: linear-gradient(180deg, #77DD77, #FF6961);
+  border-top: 1px #000 solid;
+  background: linear-gradient(180deg, #7D7, #FF6961);
 }
-.tafla tbody tr {
-  border-bottom: 1px black solid;
+
+tr {
+  border-bottom: 1px #000 solid;
 }
-.tafla tbody tr :nth-child(even) {
+tr :nth-child(even) {
   text-align: center;
 }
-.tafla tbody tr :nth-child(odd) {
-  background-color: white;
+tr :nth-child(odd) {
+  background-color: #fff;
 }
 
 .leikir__dagsetning {
@@ -107,12 +109,12 @@ section .teksti article {
   width: 100vw;
   text-align: center;
   font-size: 2em;
-  border-top: black 2px solid;
+  border-top: #000 2px solid;
   border-bottom-width: 50%;
   padding: 0.5em;
   z-index: 10;
-  filter: drop-shadow(0px 10px 10px white);
-  background-color: white;
+  filter: drop-shadow(0 10px 10px #fff);
+  background-color: #fff;
   margin: 0 auto;
 }
 .leikir__leikirnir {
@@ -123,36 +125,37 @@ section .teksti article {
   height: fit-content;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  filter: drop-shadow(10px 30px 50px #000000);
+  filter: drop-shadow(10px 30px 50px #000);
 }
-.leikir__lid li:nth-child(even) .jafn {
-  background: linear-gradient(145deg, #FCF4A3, white);
+
+.lid:nth-child(even) .jafn {
+  background: linear-gradient(145deg, #FCF4A3, #fff);
   border-right: #FCF4A3 2px solid;
 }
-.leikir__lid li:nth-child(even) .vann {
-  background: linear-gradient(145deg, #77DD77, white);
+.lid:nth-child(even) .vann {
+  background: linear-gradient(145deg, #7D7, #fff);
   border-right: #058743 2px solid;
 }
-.leikir__lid li:nth-child(even) .tap {
-  background: linear-gradient(145deg, #FF6961, white);
+.lid:nth-child(even) .tap {
+  background: linear-gradient(145deg, #FF6961, #fff);
   border-right: #ED2939 2px solid;
 }
-.leikir__lid li:nth-child(even) div div {
+.lid:nth-child(even) div div {
   padding: 0;
   max-width: fit-content;
   max-height: fit-content;
 }
-.leikir__lid li:nth-child(even) div .teamname {
+.lid:nth-child(even) div .teamname {
   grid-row: 1;
   grid-column-end: span 2;
   text-align: end;
 }
-.leikir__lid li:nth-child(even) div .teamname__skorudu {
+.lid:nth-child(even) div .teamname__skorudu {
   grid-row: 2;
   grid-column-start: 1;
   justify-self: start;
 }
-.leikir__lid li:nth-child(even) div .teamname__skor {
+.lid:nth-child(even) div .teamname__skor {
   grid-row: 3;
   grid-column-start: 1;
   font-size: 5em;
@@ -161,44 +164,44 @@ section .teksti article {
   padding: 0;
   justify-self: start;
 }
-.leikir__lid li:nth-child(even) div .teamname__stig {
+.lid:nth-child(even) div .teamname__stig {
   grid-row: 4;
   grid-column-start: 1;
   justify-self: start;
   text-align: center;
   padding: 0 0 0 0.5em;
 }
-.leikir__lid li:nth-child(even) div .teamname__vollur {
+.lid:nth-child(even) div .teamname__vollur {
   grid-row: 3;
   justify-self: end;
 }
-.leikir__lid li:nth-child(odd) .jafn {
-  background: linear-gradient(-145deg, #FCF4A3, white);
+.lid:nth-child(odd) .jafn {
+  background: linear-gradient(-145deg, #FCF4A3, #fff);
   border-left: #FCF4A3 2px solid;
 }
-.leikir__lid li:nth-child(odd) .vann {
-  background: linear-gradient(-145deg, #77DD77, white);
+.lid:nth-child(odd) .vann {
+  background: linear-gradient(-145deg, #7D7, #fff);
   border-left: #058743 2px solid;
 }
-.leikir__lid li:nth-child(odd) .tap {
-  background: linear-gradient(-145deg, #FF6961, white);
+.lid:nth-child(odd) .tap {
+  background: linear-gradient(-145deg, #FF6961, #fff);
   border-left: #ED2939 2px solid;
 }
-.leikir__lid li:nth-child(odd) div div {
+.lid:nth-child(odd) div div {
   padding: 0;
   max-width: fit-content;
   max-height: fit-content;
 }
-.leikir__lid li:nth-child(odd) div .teamname {
+.lid:nth-child(odd) div .teamname {
   grid-row: 1;
   grid-column-end: span 2;
 }
-.leikir__lid li:nth-child(odd) div .teamname__skorudu {
+.lid:nth-child(odd) div .teamname__skorudu {
   grid-row: 2;
   grid-column: 2;
   justify-self: end;
 }
-.leikir__lid li:nth-child(odd) div .teamname__skor {
+.lid:nth-child(odd) div .teamname__skor {
   grid-row: 3;
   grid-column-start: 2;
   font-size: 5em;
@@ -207,29 +210,56 @@ section .teksti article {
   padding: 0;
   justify-self: end;
 }
-.leikir__lid li:nth-child(odd) div .teamname__stig {
+.lid:nth-child(odd) div .teamname__stig {
   grid-row: 4;
   grid-column-start: 2;
   justify-self: end;
   text-align: center;
   padding: 0 0.5em 0 0;
 }
-.leikir__lid li:nth-child(odd) div .teamname__vollur {
+.lid:nth-child(odd) div .teamname__vollur {
   grid-row: 3;
 }
-.leikir__lid li div {
+
+li div {
   border-radius: 1em;
   padding: 1em;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 2em 2em 1fr 2em;
 }
-.leikir__lid li div div {
+li div div {
   display: block;
 }
 
 .teamname {
   font-size: 2em;
+  grid-row: 1;
+  grid-column-end: span 2;
+}
+.teamname__skorudu {
+  grid-row: 2;
+  grid-column: 2;
+  justify-self: end;
+}
+.teamname__skor {
+  grid-row: 3;
+  grid-column-start: 2;
+  font-size: 5em;
+  max-height: 1em;
+  margin: 0;
+  padding: 0;
+  justify-self: end;
+}
+.teamname__stig {
+  grid-row: 4;
+  grid-column-start: 2;
+  justify-self: end;
+  text-align: center;
+  padding: 0 0.5em 0 0;
+}
+.teamname__vollur {
+  grid-row: 3;
 }
 
 /*# sourceMappingURL=styles.css.map */

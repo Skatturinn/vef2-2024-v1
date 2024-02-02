@@ -51,7 +51,7 @@ export async function parseTeamsJson(data, files) {
 				const vann = stig(heima.score, uti.score)
 				stada[heima.name] += vann[0];
 				stada[uti.name] += vann[1];
-				leikur.push(htmlListString('leikir__lid', false, // búum til lista fyrir hvern leik
+				leikur.push(htmlListString('leikir__lid', 'lid', false, // búum til lista fyrir hvern leik
 					returnMatchdiv(true, heima.name, heima.score, vann[0]),
 					returnMatchdiv(false, uti.name, uti.score, vann[1]))
 				)
@@ -64,7 +64,7 @@ export async function parseTeamsJson(data, files) {
 		).replaceAll(',', '/')
 		leikir.push({
 			date: new Date(fcJson.date),
-			html: `<p class="leikir__dagsetning">${stringDagsetning}</p>${htmlListString('leikir__leikirnir', false, leikur)}`
+			html: `<p class="leikir__dagsetning">${stringDagsetning}</p>${htmlListString('leikir__leikirnir', '', false, leikur)}`
 		})
 	}
 	const tbody = teams.map(stak =>
